@@ -1,0 +1,282 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+/* Animation for running clock hands */
+@keyframes runsecond {
+    from { transform: translateY(-90px) rotate(0deg);}
+    to { transform: translateY(-90px) rotate(360deg);}
+}
+@keyframes runminutes {
+    from { transform: translateY(-80px) rotate(0deg);}
+    to { transform: translateY(-80px) rotate(360deg);}
+}
+@keyframes runhours {
+    from { transform: translateY(-65px) rotate(0deg);}
+    to { transform: translateY(-65px) rotate(360deg);}
+}
+.clock-frame {
+    width: 600px;
+    height: 600px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border-radius: 100px;
+    border: 10px  #236faf;
+    border-style: solid;
+    z-index: -2;
+    margin-left: auto;
+    margin-right: auto;
+    top: 100px;
+    padding: 0px;
+    box-shadow: inset 0px 0px 30px 11px rgba(0, 0, 0, 0.5);
+}
+/* Styling for Second hand */
+.second-hand {
+    width: 3px;
+    height: 180px;
+    position: absolute;
+    background-color: #236faf;
+    transform: translateY(-90px) rotate(0deg);
+    transform-origin: bottom;
+    animation-name: runsecond;
+    animation-duration: 60s;
+    animation-timing-function: steps(60, end);
+    animation-iteration-count: infinite;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    z-index: 3;
+}
+.second-hand::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    background-color: #ffffff;
+    width: 25px;
+    height: 25px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.4); 
+    transform: translateY(167px) translateX(-11px);
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 3px solid #236faf; 
+}
+/* Styling for Minute hand */
+.minute-hand {
+    width: 8px;
+    height: 160px;
+    position: absolute;
+    background-color: #236faf;
+    transform: translateY(-80px) rotate(30deg);
+    transform-origin: bottom;
+    animation-name: runminutes;
+    animation-duration: 3600s;
+    animation-timing-function: steps(60, end);
+    animation-iteration-count: infinite;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    z-index: 2;
+}
+/* Styling for Hour hand */
+.hour-hand {
+    width: 10px;
+    height: 130px;
+    position: absolute;
+    background-color: #236faf;
+    transform: translateY(-65px) rotate(0deg);
+    transform-origin: bottom;
+    animation-name: runhours;
+    animation-duration: 216000s;
+    animation-timing-function: steps(60, end);
+    animation-iteration-count: infinite;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    z-index: 1;
+}
+
+/* styling for the time notations */
+
+.notation-circle {
+    width: 443px;
+    height: 443px;
+    border: 1px dotted rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    z-index: 3;
+}
+
+/* for hour 12 & 6 */
+.hour12-6 {
+    display: flex;
+    position: absolute;
+    width: 1px;
+    height: 600px;
+    /* background-color: rgba(255, 0, 0, 0.411); */
+    z-index: 2;
+    justify-content: center;
+    font-size: 3.5rem;
+    color: #236faf;
+    
+
+}
+
+.hour-12 {
+    align-self: flex-start;
+    position: absolute;
+    margin-top: 40px;
+}
+.hour-6 {
+    align-self: flex-end;
+    position: absolute;
+    margin-bottom: 40px;
+}
+
+/* for hour 3 & 9 */
+.hour3-9 {
+    display: flex;
+    position: absolute;
+    width: 1px;
+    height: 600px;
+    /* background-color: rgba(0, 0, 0, 0); */
+    z-index: 2;
+    justify-content: center;
+    font-size: 3rem;
+    transform: rotateZ(90deg);
+    color: #236faf;
+
+}
+.hour-3 {
+    align-self: flex-start;
+    position: absolute;
+    margin-top: 40px;
+    transform: rotateZ(-90deg);
+}
+.hour-9 {
+    align-self: flex-end;
+    position: absolute;
+    margin-bottom: 40px;
+    transform: rotateZ(-90deg);
+}
+
+/* styling for Dashed hours */
+/* styling for hour 1 & 7 */
+.dashed-hours-1-7 {
+    width: 20px;
+    height: 600px;
+    z-index: 3;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    transform: rotateZ(30deg);
+
+}
+.hour1 {
+    position: absolute;
+    align-self: flex-start;
+    width: 4px;
+    height: 15px;
+    background-color: #236faf;
+    margin-top: 65px;
+}
+.hour7 {
+    position: absolute;
+    align-self: flex-end;
+    width: 4px;
+    height: 15px;
+    background-color: #236faf;
+    margin-bottom: 65px;
+    
+}
+
+/* styling for hour 2 & 8 */
+.dashed-hours-2-8 {
+    width: 20px;
+    height: 600px;
+    z-index: 3;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    transform: rotateZ(60deg);
+
+}
+.hour2 {
+    position: absolute;
+    align-self: flex-start;
+    width: 4px;
+    height: 15px;
+    background-color: #236faf;
+    margin-top: 65px;
+}
+.hour8 {
+    position: absolute;
+    align-self: flex-end;
+    width: 4px;
+    height: 15px;
+    background-color: #236faf;
+    margin-bottom: 65px;
+}
+
+/* styling for hour 4 & 10 */
+.dashed-hours-4-10 {
+    width: 20px;
+    height: 600px;
+    z-index: 3;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    transform: rotateZ(120deg);
+
+}
+.hour4 {
+    position: absolute;
+    align-self: flex-start;
+    width: 4px;
+    height: 15px;
+    background-color: #236faf;
+    margin-top: 65px;
+}
+
+.hour10 {
+    position: absolute;
+    align-self: flex-end;
+    width: 4px;
+    height: 15px;
+    background-color: #236faf;
+    margin-bottom: 65px;
+}
+
+/* styling for hour 5 & 11 */
+.dashed-hours-5-11 {
+    width: 20px;
+    height: 600px;
+    z-index: 3;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    transform: rotateZ(150deg);
+
+}
+.hour5 {
+    position: absolute;
+    align-self: flex-start;
+    width: 4px;
+    height: 15px;
+    background-color: #236faf;
+    margin-top: 65px;
+}
+.hour11 {
+    position: absolute;
+    align-self: flex-end;
+    width: 4px;
+    height: 15px;
+    background-color: #236faf;
+    margin-bottom: 65px;
+} 
+
+
+
+
